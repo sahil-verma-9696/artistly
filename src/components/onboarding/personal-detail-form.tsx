@@ -16,9 +16,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "../ui/input";
+import { UseFormReturn } from "react-hook-form";
+import type { FormData } from "./onboarding-form";
 
 type Props = {
-  form: any;
+  form: UseFormReturn<FormData>;
   categories: string[];
   languages: string[];
   feeRanges: string[];

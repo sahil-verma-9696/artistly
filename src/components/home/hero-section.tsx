@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Users, Calendar } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -18,9 +19,8 @@ export function HeroSection() {
                 for Your Events
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl">
-                Connect with India's most talented singers, dancers, speakers,
-                and DJs. Make your events unforgettable with professional
-                entertainment.
+                Connect with India&rsquo;s most talented singers, dancers,
+                speakers,
               </p>
             </div>
 
@@ -67,9 +67,11 @@ export function HeroSection() {
           {/* Hero Image */}
           <div className="relative">
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 p-8">
-              <img
-                src="/placeholder.svg?height=500&width=500"
+              <Image
+                src="/placeholder.svg"
                 alt="Professional artists performing on stage"
+                width={500}
+                height={500}
                 className="w-full h-full object-cover rounded-xl shadow-2xl"
               />
             </div>

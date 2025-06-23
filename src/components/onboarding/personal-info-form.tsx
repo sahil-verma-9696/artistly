@@ -9,9 +9,11 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
+import { UseFormReturn } from "react-hook-form";
+import type { FormData } from "./onboarding-form";
 
 type Props = {
-  form: any;
+  form: UseFormReturn<FormData>;
 };
 
 export default function PersonalInfoForm(props: Props) {

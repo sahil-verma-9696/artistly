@@ -10,8 +10,12 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 
+import { UseFormReturn } from "react-hook-form";
+import type { FormData } from "./onboarding-form";
+import Image from "next/image";
+
 type Props = {
-  form: any;
+  form: UseFormReturn<FormData>;
 };
 
 export default function ProfileUpload({ form }: Props) {
@@ -25,7 +29,10 @@ export default function ProfileUpload({ form }: Props) {
     };
   }, [previewUrl]);
 
-  const handleDrop = (e: DragEvent<HTMLDivElement>, onChange: any) => {
+  const handleDrop = (
+    e: DragEvent<HTMLDivElement>,
+    onChange: (file: File) => void
+  ) => {
     e.preventDefault();
     setIsDragOver(false);
     const file = e.dataTransfer.files?.[0];
@@ -100,9 +107,11 @@ export default function ProfileUpload({ form }: Props) {
 
         {previewUrl && (
           <div className="rounded-lg overflow-hidden border border-gray-200">
-            <img
+            <Image
               src={previewUrl}
               alt="Profile Preview"
+              width={500}
+              height={500}
               className="w-full max-h-[300px] object-cover rounded"
             />
           </div>

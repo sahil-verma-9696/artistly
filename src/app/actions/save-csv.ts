@@ -1,10 +1,24 @@
 "use server";
 
-import { writeFile, appendFile, readFile } from "fs/promises";
+import { writeFile, appendFile } from "fs/promises";
 import path from "path";
 import { existsSync, mkdirSync } from "fs";
-
-function escapeCSV(value: any): string {
+type ArtistData = {
+  name: string;
+  bio: string;
+  categories: string[];
+  languages: string[];
+  feeRange: string;
+  location: string;
+  phone: string;
+  email: string;
+  experience: string;
+  portfolio?: string;
+  profileImage?: File | { base64: string }; // Depending on usage
+};
+function escapeCSV(
+  value: string | string[] | { base64: string } | File | undefined
+): string {
   if (Array.isArray(value)) {
     value = value.join(", ");
   }
@@ -12,7 +26,7 @@ function escapeCSV(value: any): string {
   return `"${stringified}"`;
 }
 
-export async function saveArtistToCSV(data: Record<string, any>) {
+export async function saveArtistToCSV(data: ArtistData) {
   const dir = path.join(process.cwd(), "public", "submissions");
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
 

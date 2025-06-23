@@ -13,9 +13,9 @@ export function Footer() {
               <span className="text-2xl font-bold">Artistly</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              India's premier platform connecting event planners with talented
-              performing artists. Book the perfect entertainment for your
-              special occasions.
+              India&rsquo;s premier platform connecting event planners with
+              talented performing artists. Book the perfect entertainment for
+              your special occasions.
             </p>
             <div className="flex space-x-4">
               <div className="flex items-center space-x-2 text-sm text-gray-300">

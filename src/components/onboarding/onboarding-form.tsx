@@ -13,6 +13,12 @@ import PersonalDetailForm from "./personal-detail-form";
 import ProfileUpload from "./profile-upload";
 import { saveArtistToCSV } from "@/app/actions/save-csv";
 
+type SaveCSVResult = {
+  success: boolean;
+  fileName: string;
+  filePath: string;
+};
+
 // Data Arrays
 const categories: string[] = [
   "Singer",
@@ -77,7 +83,7 @@ const formSchema = z.object({
     }),
 });
 
-type FormData = z.infer<typeof formSchema>;
+export type FormData = z.infer<typeof formSchema>;
 
 export function OnboardingForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -119,7 +125,7 @@ export function OnboardingForm() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      const result: any = await saveArtistToCSV(data);
+      const result: SaveCSVResult = await saveArtistToCSV(data);
       setDownloadLink(result.filePath);
     } catch (err) {
       console.error("CSV save failed:", err);

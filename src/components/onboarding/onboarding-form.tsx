@@ -11,6 +11,7 @@ import { CheckCircle } from "lucide-react";
 import PersonalInfoForm from "./personal-info-form";
 import PersonalDetailForm from "./personal-detail-form";
 import ProfileUpload from "./profile-upload";
+import { saveArtistToCSV } from "@/app/actions/save-csv";
 
 // Data Arrays
 const categories: string[] = [
@@ -46,7 +47,13 @@ const feeRanges: string[] = [
   "₹50,000 - ₹100,000",
   "₹100,000+",
 ];
-
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+const ACCEPTED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+];
 // Zod Schema
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -59,6 +66,15 @@ const formSchema = z.object({
   email: z.string().email("Valid email is required"),
   experience: z.string().regex(/^\d+$/, "Experience must be a number in years"),
   portfolio: z.string().url().optional().or(z.literal("")),
+  profileImage: z
+    .instanceof(File)
+    .optional()
+    .refine((file) => !file || file.size <= MAX_FILE_SIZE, {
+      message: "Image must be less than 5MB",
+    })
+    .refine((file) => !file || ACCEPTED_IMAGE_TYPES.includes(file.type), {
+      message: "Only .jpg, .jpeg, .png and .webp formats are supported",
+    }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -67,6 +83,7 @@ export function OnboardingForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [steps, setSteps] = useState(1);
+  const [downloadLink, setDownloadLink] = useState<string | null>(null);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -82,6 +99,7 @@ export function OnboardingForm() {
       email: "",
       experience: "",
       portfolio: "",
+      profileImage: undefined,
     },
   });
 
@@ -89,7 +107,7 @@ export function OnboardingForm() {
   const stepFields: Record<number, (keyof FormData)[]> = {
     1: ["name", "bio", "location", "phone", "email"],
     2: ["categories", "languages", "feeRange", "experience", "portfolio"],
-    3: [],
+    3: ["profileImage"],
   };
 
   const validateStep = async (): Promise<boolean> => {
@@ -100,7 +118,12 @@ export function OnboardingForm() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const result: any = await saveArtistToCSV(data);
+      setDownloadLink(result.filePath);
+    } catch (err) {
+      console.error("CSV save failed:", err);
+    }
     console.log("Artist Registration Data:", data);
     setIsSubmitted(true);
     setIsSubmitting(false);
@@ -118,6 +141,16 @@ export function OnboardingForm() {
             Thank you for joining Artistly! Our team will review your
             application and get back to you within 24-48 hours.
           </p>
+          {downloadLink && (
+            <a
+              href={downloadLink}
+              download
+              className="text-blue-600 underline block mb-4"
+            >
+              Download Submission CSV
+            </a>
+          )}
+
           <Button onClick={() => (window.location.href = "/")}>
             Return to Homepage
           </Button>
@@ -143,7 +176,7 @@ export function OnboardingForm() {
               languages={languages}
             />
           )}
-          {steps === 3 && <ProfileUpload />}
+          {steps === 3 && <ProfileUpload form={form} />}
 
           {/* Navigation Buttons */}
           <div

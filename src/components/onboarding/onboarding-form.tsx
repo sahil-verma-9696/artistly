@@ -164,7 +164,7 @@ export function OnboardingForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 px-[5vw]"
+          className="space-y-8 px-[5vw] my-4"
         >
           {/* Step Components */}
           {steps === 1 && <PersonalInfoForm form={form} />}

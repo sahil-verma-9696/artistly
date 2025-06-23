@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "name": "Priya Sharma",
+      "category": ["Singer", "Performer"],
+      "priceRange": "₹25,000 - ₹50,000",
+      "location": "Mumbai, Maharashtra",
+      "languages": ["Hindi", "English", "Marathi"],
+      "bio": "Professional playback singer with 8+ years of experience in Bollywood and regional cinema.",
+      "image": "/placeholder.svg?height=300&width=300",
+      "rating": 4.8,
+      "experience": "8+ years"
+    },
+    {
+      "id": 2,
+      "name": "Rajesh Kumar",
+      "category": ["DJ", "Music Producer"],
+      "priceRange": "₹15,000 - ₹30,000",
+      "location": "Delhi, NCR",
+      "languages": ["Hindi", "English", "Punjabi"],
+      "bio": "Award-winning DJ specializing in wedding celebrations and corporate events.",
+      "image": "/placeholder.svg?height=300&width=300",
+      "rating": 4.6,
+      "experience": "6+ years"
+    },
+    {
+      "id": 3,
+      "name": "Ananya Dance Troupe",
+      "category": ["Dancer", "Choreographer"],
+      "priceRange": "₹20,000 - ₹40,000",
+      "location": "Bangalore, Karnataka",
+      "languages": ["English", "Hindi", "Kannada"],
+      "bio": "Contemporary and classical dance group with international performance experience.",
+      "image": "/placeholder.svg?height=300&width=300",
+      "rating": 4.9,
+      "experience": "10+ years"
+    },
+    {
+      "id": 4,
+      "name": "Dr. Vikram Patel",
+      "category": ["Speaker", "Motivational Coach"],
+      "priceRange": "₹50,000 - ₹100,000",
+      "location": "Pune, Maharashtra",
+      "languages": ["English", "Hindi", "Gujarati"],
+      "bio": "Renowned motivational speaker and business coach with TEDx talks experience.",
+      "image": "/placeholder.svg?height=300&width=300",
+      "rating": 4.7,
+      "experience": "12+ years"
+    },
+    {
+      "id": 5,
+      "name": "Sitar Strings Ensemble",
+      "category": ["Singer", "Instrumentalist"],
+      "priceRange": "₹30,000 - ₹60,000",
+      "location": "Kolkata, West Bengal",
+      "languages": ["Bengali", "Hindi", "English"],
+      "bio": "Classical Indian music ensemble specializing in sitar and tabla performances.",
+      "image": "/placeholder.svg?height=300&width=300",
+      "rating": 4.8,
+      "experience": "15+ years"
+    },
+    {
+      "id": 6,
+      "name": "Comedy Central Crew",
+      "category": ["Comedian", "Performer"],
+      "priceRange": "₹20,000 - ₹45,000",
+      "location": "Chennai, Tamil Nadu",
+      "languages": ["Tamil", "English", "Hindi"],
+      "bio": "Stand-up comedy group known for corporate entertainment and festival performances.",
+      "image": "/placeholder.svg?height=300&width=300",
+      "rating": 4.5,
+      "experience": "5+ years"
+    }
+  ]
+  

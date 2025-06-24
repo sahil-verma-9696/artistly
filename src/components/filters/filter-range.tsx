@@ -1,4 +1,3 @@
-// components/filters/RangeFilter.tsx
 import { useState, useEffect } from "react";
 import { RangeSlider } from "@/components/ui/range-slider";
 

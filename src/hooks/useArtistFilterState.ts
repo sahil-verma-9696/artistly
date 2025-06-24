@@ -44,7 +44,9 @@ export function useArtistFilterState() {
       params.set("maxPrice", String(max));
     }
 
-    router.push(`/artists${params.toString() ? `?${params.toString()}` : ""}`);
+    router.push(`/artists${params.toString() ? `?${params.toString()}` : ""}`, {
+      scroll: false,
+    });
   }, [selectedCategories, selectedLocation, selectedPriceRange, router]);
 
   // ✅ Safe handlers: only set state here
@@ -90,10 +92,41 @@ export function useArtistFilterState() {
     [router]
   );
 
+  // Helper to format price range
+  const priceLabel =
+    selectedPriceRange[0] === MIN_PRICE && selectedPriceRange[1] === MAX_PRICE
+      ? null
+      : `₹${selectedPriceRange[0]} - ₹${selectedPriceRange[1]}`;
+
+  type AppliedFilter = { label: string; onRemove: () => void } | null;
+  const appliedFilters: AppliedFilter[] = [
+    ...selectedCategories.map((cat) => ({
+      label: cat,
+      onRemove: () => {
+        console.log("removing", cat);
+
+        handleCategoryChange(cat, false);
+      },
+    })),
+    selectedLocation && selectedLocation !== "all"
+      ? {
+          label: selectedLocation,
+          onRemove: () => handleLocationChange("all"),
+        }
+      : null,
+    priceLabel
+      ? {
+          label: priceLabel,
+          onRemove: () => handlePriceRangeChange([MIN_PRICE, MAX_PRICE]),
+        }
+      : null,
+  ].filter(Boolean);
+
   return {
     selectedCategories,
     selectedLocation,
     selectedPriceRange,
+    appliedFilters,
     handleCategoryChange,
     handleLocationChange,
     handlePriceRangeChange,

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import FilterSection from "../filters/filter-section";
 import FilterSelect from "../filters/filter-select";
 import { RangeFilter } from "../filters/filter-range";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import {
   CATEGORIES,
   LOCATIONS,
@@ -15,6 +16,7 @@ import { useArtistFilterState } from "@/hooks/useArtistFilterState";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -45,9 +47,18 @@ export function ArtistFilters() {
           <SheetTrigger asChild>
             <Button className="w-full">Filters</Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-11/12 max-w-sm p-4">
+          <SheetContent
+            side="left"
+            className="w-11/12 max-w-sm p-4 overflow-y-auto"
+          >
             <SheetHeader>
               <SheetTitle className="text-lg">Filters</SheetTitle>
+              <VisuallyHidden>
+                <SheetDescription>
+                  Use these filters to narrow down the list of artists by
+                  category, location, and price.
+                </SheetDescription>
+              </VisuallyHidden>
             </SheetHeader>
             <div className="space-y-6 mt-4">
               <FilterSection

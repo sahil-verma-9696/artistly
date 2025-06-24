@@ -1,75 +1,439 @@
 [
-    {
-      "id": 1,
-      "name": "Priya Sharma",
-      "category": ["Singer", "Performer"],
-      "priceRange": "₹25,000 - ₹50,000",
-      "location": "Mumbai, Maharashtra",
-      "languages": ["Hindi", "English", "Marathi"],
-      "bio": "Professional playback singer with 8+ years of experience in Bollywood and regional cinema.",
-      "image": "/placeholder.svg?height=300&width=300",
-      "rating": 4.8,
-      "experience": "8+ years"
-    },
-    {
-      "id": 2,
-      "name": "Rajesh Kumar",
-      "category": ["DJ", "Music Producer"],
-      "priceRange": "₹15,000 - ₹30,000",
-      "location": "Delhi, NCR",
-      "languages": ["Hindi", "English", "Punjabi"],
-      "bio": "Award-winning DJ specializing in wedding celebrations and corporate events.",
-      "image": "/placeholder.svg?height=300&width=300",
-      "rating": 4.6,
-      "experience": "6+ years"
-    },
-    {
-      "id": 3,
-      "name": "Ananya Dance Troupe",
-      "category": ["Dancer", "Choreographer"],
-      "priceRange": "₹20,000 - ₹40,000",
-      "location": "Bangalore, Karnataka",
-      "languages": ["English", "Hindi", "Kannada"],
-      "bio": "Contemporary and classical dance group with international performance experience.",
-      "image": "/placeholder.svg?height=300&width=300",
-      "rating": 4.9,
-      "experience": "10+ years"
-    },
-    {
-      "id": 4,
-      "name": "Dr. Vikram Patel",
-      "category": ["Speaker", "Motivational Coach"],
-      "priceRange": "₹50,000 - ₹100,000",
-      "location": "Pune, Maharashtra",
-      "languages": ["English", "Hindi", "Gujarati"],
-      "bio": "Renowned motivational speaker and business coach with TEDx talks experience.",
-      "image": "/placeholder.svg?height=300&width=300",
-      "rating": 4.7,
-      "experience": "12+ years"
-    },
-    {
-      "id": 5,
-      "name": "Sitar Strings Ensemble",
-      "category": ["Singer", "Instrumentalist"],
-      "priceRange": "₹30,000 - ₹60,000",
-      "location": "Kolkata, West Bengal",
-      "languages": ["Bengali", "Hindi", "English"],
-      "bio": "Classical Indian music ensemble specializing in sitar and tabla performances.",
-      "image": "/placeholder.svg?height=300&width=300",
-      "rating": 4.8,
-      "experience": "15+ years"
-    },
-    {
-      "id": 6,
-      "name": "Comedy Central Crew",
-      "category": ["Comedian", "Performer"],
-      "priceRange": "₹20,000 - ₹45,000",
-      "location": "Chennai, Tamil Nadu",
-      "languages": ["Tamil", "English", "Hindi"],
-      "bio": "Stand-up comedy group known for corporate entertainment and festival performances.",
-      "image": "/placeholder.svg?height=300&width=300",
-      "rating": 4.5,
-      "experience": "5+ years"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Priya Sharma",
+    "category": [
+      "Singer",
+      "Performer"
+    ],
+    "priceRange": "₹25,000 - ₹50,000",
+    "minPrice": 25000,
+    "maxPrice": 50000,
+    "location": "Mumbai, Maharashtra",
+    "languages": [
+      "Hindi",
+      "English",
+      "Marathi"
+    ],
+    "bio": "Professional playback singer with 8+ years of experience in Bollywood and regional cinema.",
+    "image": "/placeholder.svg",
+    "rating": 4.8,
+    "experience": "8+ years",
+    "experienceYears": 8
+  },
+  {
+    "id": 2,
+    "name": "Rajesh Kumar",
+    "category": [
+      "DJ",
+      "Music Producer"
+    ],
+    "priceRange": "₹15,000 - ₹30,000",
+    "minPrice": 15000,
+    "maxPrice": 30000,
+    "location": "Delhi, NCR",
+    "languages": [
+      "Hindi",
+      "English",
+      "Punjabi"
+    ],
+    "bio": "Award-winning DJ specializing in wedding celebrations and corporate events.",
+    "image": "/placeholder.svg",
+    "rating": 4.6,
+    "experience": "6+ years",
+    "experienceYears": 6
+  },
+  {
+    "id": 3,
+    "name": "Ananya Dance Troupe",
+    "category": [
+      "Dancer",
+      "Choreographer"
+    ],
+    "priceRange": "₹20,000 - ₹40,000",
+    "minPrice": 20000,
+    "maxPrice": 40000,
+    "location": "Bangalore, Karnataka",
+    "languages": [
+      "English",
+      "Hindi",
+      "Kannada"
+    ],
+    "bio": "Contemporary and classical dance group with international performance experience.",
+    "image": "/placeholder.svg",
+    "rating": 4.9,
+    "experience": "10+ years",
+    "experienceYears": 10
+  },
+  {
+    "id": 4,
+    "name": "Siddharth Verma",
+    "category": [
+      "Magician",
+      "Illusionist"
+    ],
+    "priceRange": "₹18,000 - ₹35,000",
+    "minPrice": 18000,
+    "maxPrice": 35000,
+    "location": "Chennai, Tamil Nadu",
+    "languages": [
+      "English",
+      "Tamil",
+      "Hindi"
+    ],
+    "bio": "Master illusionist captivating audiences with unique magical performances.",
+    "image": "/placeholder.svg",
+    "rating": 4.7,
+    "experience": "7+ years",
+    "experienceYears": 7
+  },
+  {
+    "id": 5,
+    "name": "Neha Patel",
+    "category": [
+      "Anchor",
+      "Host"
+    ],
+    "priceRange": "₹12,000 - ₹25,000",
+    "minPrice": 12000,
+    "maxPrice": 25000,
+    "location": "Ahmedabad, Gujarat",
+    "languages": [
+      "Hindi",
+      "English",
+      "Gujarati"
+    ],
+    "bio": "Energetic and engaging host for corporate events, weddings, and live shows.",
+    "image": "/placeholder.svg",
+    "rating": 4.5,
+    "experience": "5+ years",
+    "experienceYears": 5
+  },
+  {
+    "id": 6,
+    "name": "Fusion Beats Band",
+    "category": [
+      "Band",
+      "Live Music"
+    ],
+    "priceRange": "₹40,000 - ₹80,000",
+    "minPrice": 40000,
+    "maxPrice": 80000,
+    "location": "Pune, Maharashtra",
+    "languages": [
+      "Hindi",
+      "English",
+      "Marathi",
+      "Punjabi"
+    ],
+    "bio": "Dynamic band performing a blend of Bollywood, Sufi, and Western fusion music.",
+    "image": "/placeholder.svg",
+    "rating": 4.8,
+    "experience": "9+ years",
+    "experienceYears": 9
+  },
+  {
+    "id": 7,
+    "name": "Kiran Rao",
+    "category": [
+      "Comedian",
+      "Stand-up Artist"
+    ],
+    "priceRange": "₹10,000 - ₹20,000",
+    "minPrice": 10000,
+    "maxPrice": 20000,
+    "location": "Hyderabad, Telangana",
+    "languages": [
+      "English",
+      "Hindi",
+      "Telugu"
+    ],
+    "bio": "Observational comedian with a unique take on everyday life.",
+    "image": "/placeholder.svg",
+    "rating": 4.4,
+    "experience": "4+ years",
+    "experienceYears": 4
+  },
+  {
+    "id": 8,
+    "name": "Artistic Brush Strokes",
+    "category": [
+      "Face Painter",
+      "Caricaturist"
+    ],
+    "priceRange": "₹8,000 - ₹15,000",
+    "minPrice": 8000,
+    "maxPrice": 15000,
+    "location": "Kolkata, West Bengal",
+    "languages": [
+      "Bengali",
+      "English",
+      "Hindi"
+    ],
+    "bio": "Creative face painting and hilarious caricatures for all ages and events.",
+    "image": "/placeholder.svg",
+    "rating": 4.7,
+    "experience": "6+ years",
+    "experienceYears": 6
+  },
+  {
+    "id": 9,
+    "name": "Deepak Singh",
+    "category": [
+      "Instrumentalist",
+      "Saxophonist"
+    ],
+    "priceRange": "₹15,000 - ₹30,000",
+    "minPrice": 15000,
+    "maxPrice": 30000,
+    "location": "Lucknow, Uttar Pradesh",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "bio": "Versatile saxophonist performing jazz, Bollywood, and classical tunes.",
+    "image": "/placeholder.svg",
+    "rating": 4.6,
+    "experience": "7+ years",
+    "experienceYears": 7
+  },
+  {
+    "id": 10,
+    "name": "Soulful Strings",
+    "category": [
+      "Musician",
+      "Violinist"
+    ],
+    "priceRange": "₹12,000 - ₹25,000",
+    "minPrice": 12000,
+    "maxPrice": 25000,
+    "location": "Jaipur, Rajasthan",
+    "languages": [
+      "Hindi",
+      "English",
+      "Rajasthani"
+    ],
+    "bio": "Talented violinist adding elegance and melody to weddings and corporate gatherings.",
+    "image": "/placeholder.svg",
+    "rating": 4.8,
+    "experience": "8+ years",
+    "experienceYears": 8
+  },
+  {
+    "id": 11,
+    "name": "Rhythmic Drummers",
+    "category": [
+      "Percussionist",
+      "Drummer"
+    ],
+    "priceRange": "₹10,000 - ₹20,000",
+    "minPrice": 10000,
+    "maxPrice": 20000,
+    "location": "Chandigarh, Punjab",
+    "languages": [
+      "Punjabi",
+      "Hindi",
+      "English"
+    ],
+    "bio": "Energetic drummers creating pulsating rhythms for any event.",
+    "image": "/placeholder.svg",
+    "rating": 4.5,
+    "experience": "5+ years",
+    "experienceYears": 5
+  },
+  {
+    "id": 12,
+    "name": "Golden Voices Choir",
+    "category": [
+      "Choir",
+      "Vocal Group"
+    ],
+    "priceRange": "₹30,000 - ₹60,000",
+    "minPrice": 30000,
+    "maxPrice": 60000,
+    "location": "Goa",
+    "languages": [
+      "English",
+      "Hindi",
+      "Konkani"
+    ],
+    "bio": "Harmonious choir offering a diverse repertoire from classical to contemporary.",
+    "image": "/placeholder.svg",
+    "rating": 4.9,
+    "experience": "12+ years",
+    "experienceYears": 12
+  },
+  {
+    "id": 13,
+    "name": "Shadow Play Artists",
+    "category": [
+      "Puppeteer",
+      "Shadow Artist"
+    ],
+    "priceRange": "₹15,000 - ₹28,000",
+    "minPrice": 15000,
+    "maxPrice": 28000,
+    "location": "Bhopal, Madhya Pradesh",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "bio": "Enchanting shadow puppet shows bringing stories to life.",
+    "image": "/placeholder.svg",
+    "rating": 4.6,
+    "experience": "7+ years",
+    "experienceYears": 7
+  },
+  {
+    "id": 14,
+    "name": "Aerial Grace Acrobats",
+    "category": [
+      "Acrobat",
+      "Aerialist"
+    ],
+    "priceRange": "₹25,000 - ₹55,000",
+    "minPrice": 25000,
+    "maxPrice": 55000,
+    "location": "Gurugram, Haryana",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "bio": "Stunning aerial performances and acrobatic displays for grand events.",
+    "image": "/placeholder.svg",
+    "rating": 4.9,
+    "experience": "11+ years",
+    "experienceYears": 11
+  },
+  {
+    "id": 15,
+    "name": "Mimicry King Manoj",
+    "category": [
+      "Mimicry Artist",
+      "Impressionist"
+    ],
+    "priceRange": "₹8,000 - ₹18,000",
+    "minPrice": 8000,
+    "maxPrice": 18000,
+    "location": "Patna, Bihar",
+    "languages": [
+      "Hindi",
+      "Bhojpuri",
+      "English"
+    ],
+    "bio": "Hilarious mimicry artist with impressions of celebrities and public figures.",
+    "image": "/placeholder.svg",
+    "rating": 4.4,
+    "experience": "6+ years",
+    "experienceYears": 6
+  },
+  {
+    "id": 16,
+    "name": "Storyteller's Guild",
+    "category": [
+      "Storyteller",
+      "Narrator"
+    ],
+    "priceRange": "₹7,000 - ₹14,000",
+    "minPrice": 7000,
+    "maxPrice": 14000,
+    "location": "Thiruvananthapuram, Kerala",
+    "languages": [
+      "Malayalam",
+      "English",
+      "Hindi"
+    ],
+    "bio": "Engaging storytellers bringing ancient folklore and modern tales to life.",
+    "image": "/placeholder.svg",
+    "rating": 4.7,
+    "experience": "9+ years",
+    "experienceYears": 9
+  },
+  {
+    "id": 17,
+    "name": "Fire Twirlers India",
+    "category": [
+      "Fire Artist",
+      "Performer"
+    ],
+    "priceRange": "₹20,000 - ₹45,000",
+    "minPrice": 20000,
+    "maxPrice": 45000,
+    "location": "Nashik, Maharashtra",
+    "languages": [
+      "Marathi",
+      "Hindi",
+      "English"
+    ],
+    "bio": "Spectacular fire performances with dazzling routines and stunts.",
+    "image": "/placeholder.svg",
+    "rating": 4.8,
+    "experience": "8+ years",
+    "experienceYears": 8
+  },
+  {
+    "id": 18,
+    "name": "Illusionary Arts Duo",
+    "category": [
+      "Magician",
+      "Mentalist"
+    ],
+    "priceRange": "₹22,000 - ₹40,000",
+    "minPrice": 22000,
+    "maxPrice": 40000,
+    "location": "Visakhapatnam, Andhra Pradesh",
+    "languages": [
+      "Telugu",
+      "English",
+      "Hindi"
+    ],
+    "bio": "Mind-bending illusions and mentalism acts that defy explanation.",
+    "image": "/placeholder.svg",
+    "rating": 4.9,
+    "experience": "10+ years",
+    "experienceYears": 10
+  },
+  {
+    "id": 19,
+    "name": "Street Art Graffiti",
+    "category": [
+      "Graffiti Artist",
+      "Live Painter"
+    ],
+    "priceRange": "₹15,000 - ₹30,000",
+    "minPrice": 15000,
+    "maxPrice": 30000,
+    "location": "Indore, Madhya Pradesh",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "bio": "Live graffiti art and custom murals for events and spaces.",
+    "image": "/placeholder.svg",
+    "rating": 4.6,
+    "experience": "7+ years",
+    "experienceYears": 7
+  },
+  {
+    "id": 20,
+    "name": "Bubble Mania Performers",
+    "category": [
+      "Bubble Artist",
+      "Entertainer"
+    ],
+    "priceRange": "₹9,000 - ₹18,000",
+    "minPrice": 9000,
+    "maxPrice": 18000,
+    "location": "Coimbatore, Tamil Nadu",
+    "languages": [
+      "Tamil",
+      "English",
+      "Hindi"
+    ],
+    "bio": "Giant bubble shows and interactive bubble fun for kids and adults.",
+    "image": "/placeholder.svg",
+    "rating": 4.5,
+    "experience": "5+ years",
+    "experienceYears": 5
+  }
+]

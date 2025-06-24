@@ -23,7 +23,7 @@ type Artist = {
 export function ArtistListing() {
   const searchParams = useSearchParams();
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [artists] = useState<Artist[]>(artistsData);
+  const [ artists] = useState<Artist[]>(artistsData);
 
   // Filter artists based on search parameters
   const filteredArtists = useMemo(() => {
@@ -45,17 +45,17 @@ export function ArtistListing() {
       );
     }
 
-    // Filter by location
-    if (locationParam) {
-      filtered = filtered.filter((artist) =>
-        artist.location.toLowerCase().includes(locationParam.toLowerCase())
-      );
-    }
+    // // Filter by location
+    // if (locationParam) {
+    //   filtered = filtered.filter((artist) =>
+    //     artist.location.toLowerCase().includes(locationParam.toLowerCase())
+    //   );
+    // }
 
-    // Filter by price range
-    if (priceParam) {
-      filtered = filtered.filter((artist) => artist.priceRange === priceParam);
-    }
+    // // Filter by price range
+    // if (priceParam) {
+    //   filtered = filtered.filter((artist) => artist.priceRange === priceParam);
+    // }
 
     return filtered;
   }, [artists, searchParams]);

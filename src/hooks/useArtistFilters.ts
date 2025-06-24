@@ -7,28 +7,43 @@ export function useArtistFilters() {
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<string>("all");
-  const [selectedPriceRange, setSelectedPriceRange] = useState<string>("all");
+  const [selectedPriceRange, setSelectedPriceRange] = useState<
+    [number, number]
+  >([7000, 80000]);
 
+  // Extract params from URL on mount
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     const locationParam = searchParams.get("location");
-    const priceParam = searchParams.get("price");
+    const minPriceParam = searchParams.get("minPrice");
+    const maxPriceParam = searchParams.get("maxPrice");
 
     if (categoryParam) setSelectedCategories(categoryParam.split(","));
     if (locationParam) setSelectedLocation(locationParam);
-    if (priceParam) setSelectedPriceRange(priceParam);
+    if (minPriceParam && maxPriceParam) {
+      setSelectedPriceRange([Number(minPriceParam), Number(maxPriceParam)]);
+    }
   }, [searchParams]);
 
-  const updateURL = (categories: string[], location: string, price: string) => {
+  // Update URL helper
+  const updateURL = (
+    categories: string[],
+    location: string,
+    priceRange: [number, number]
+  ) => {
+    const [min, max] = priceRange;
     const params = new URLSearchParams();
 
     if (categories.length > 0) params.set("category", categories.join(","));
     if (location !== "all") params.set("location", location);
-    if (price !== "all") params.set("price", price);
-
+    if (!(min === 7000 && max === 80000)) {
+      params.set("minPrice", String(min));
+      params.set("maxPrice", String(max));
+    }
     router.push(`/artists${params.toString() ? `?${params.toString()}` : ""}`);
   };
 
+  // Handlers
   const handleCategoryChange = (category: string, checked: boolean) => {
     const updated = checked
       ? [...selectedCategories, category]
@@ -43,9 +58,9 @@ export function useArtistFilters() {
     updateURL(selectedCategories, location, selectedPriceRange);
   };
 
-  const handlePriceRangeChange = (price: string) => {
-    setSelectedPriceRange(price);
-    updateURL(selectedCategories, selectedLocation, price);
+  const handlePriceRangeChange = (range: [number, number]) => {
+    setSelectedPriceRange(range);
+    updateURL(selectedCategories, selectedLocation, range);
   };
 
   const clearFilters = (type?: "category" | "location" | "price") => {
@@ -60,13 +75,14 @@ export function useArtistFilters() {
         query.delete("location");
         break;
       case "price":
-        setSelectedPriceRange("all");
-        query.delete("price");
+        setSelectedPriceRange([7000, 80000]);
+        query.delete("minPrice");
+        query.delete("maxPrice");
         break;
       default:
         setSelectedCategories([]);
         setSelectedLocation("all");
-        setSelectedPriceRange("all");
+        setSelectedPriceRange([7000, 80000]);
         router.push("/artists");
         return;
     }

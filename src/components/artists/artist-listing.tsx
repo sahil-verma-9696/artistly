@@ -1,64 +1,14 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
-import { ArtistCard } from "./artist-card";
-import artistsData from "@/data/artists.json";
+import { useState } from "react";
 import { Grid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-type Artist = {
-  id: number;
-  name: string;
-  category: string[];
-  priceRange: string;
-  location: string;
-  languages: string[];
-  bio: string;
-  image: string;
-  rating: number;
-  experience: string;
-};
+import { ArtistCard } from "./artist-card";
+import { useFilteredArtists } from "@/hooks/useFilteredArtists";
 
 export function ArtistListing() {
-  const searchParams = useSearchParams();
+  const { filteredArtists } = useFilteredArtists();
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [ artists] = useState<Artist[]>(artistsData);
-
-  // Filter artists based on search parameters
-  const filteredArtists = useMemo(() => {
-    const categoryParam = searchParams.get("category");
-    const locationParam = searchParams.get("location");
-    const priceParam = searchParams.get("price");
-
-    let filtered = [...artists];
-
-    // Filter by categories
-    if (categoryParam) {
-      const categories = categoryParam.split(",");
-      filtered = filtered.filter((artist) =>
-        categories.some((cat) =>
-          artist.category.some((artistCat) =>
-            artistCat.toLowerCase().includes(cat.toLowerCase())
-          )
-        )
-      );
-    }
-
-    // // Filter by location
-    // if (locationParam) {
-    //   filtered = filtered.filter((artist) =>
-    //     artist.location.toLowerCase().includes(locationParam.toLowerCase())
-    //   );
-    // }
-
-    // // Filter by price range
-    // if (priceParam) {
-    //   filtered = filtered.filter((artist) => artist.priceRange === priceParam);
-    // }
-
-    return filtered;
-  }, [artists, searchParams]);
 
   return (
     <div className="space-y-6">

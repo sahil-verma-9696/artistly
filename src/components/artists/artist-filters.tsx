@@ -6,6 +6,7 @@ import FilterSection from "../filters/filter-section";
 import FilterSelect from "../filters/filter-select";
 import { useArtistFilters } from "@/hooks/useArtistFilters";
 import { categories, locations, priceRanges } from "@/config/filterConfig";
+import { RangeFilter } from "../filters/filter-range";
 
 export function ArtistFilters() {
   const {
@@ -47,13 +48,14 @@ export function ArtistFilters() {
           />
 
           {/* Price Range */}
-          <FilterSelect
-            title="Price Range"
-            options={priceRanges}
-            selectedValue={selectedPriceRange}
+          <RangeFilter
+            label="Price Range"
+            defaultValue={selectedPriceRange}
+            min={7000}
+            max={80000}
+            step={1000}
+            unit="₹"
             onChange={handlePriceRangeChange}
-            placeholder="Select price range"
-            allLabel="All Prices"
           />
 
           {/* Clear Filters */}

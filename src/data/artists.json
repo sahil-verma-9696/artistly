@@ -435,5 +435,48 @@
     "rating": 4.5,
     "experience": "5+ years",
     "experienceYears": 5
+  },
+  {
+    "id": 21,
+    "name": "Bubble Mania Performers--2",
+    "category": [
+      "Bubble Artist",
+      "Entertainer"
+    ],
+    "priceRange": "₹9,000 - ₹18,000",
+    "minPrice": 9000,
+    "maxPrice": 18000,
+    "location": "Coimbatore, Tamil Nadu",
+    "languages": [
+      "Tamil",
+      "English",
+      "Hindi"
+    ],
+    "bio": "Giant bubble shows and interactive bubble fun for kids and adults.",
+    "image": "/placeholder.svg",
+    "rating": 4.5,
+    "experience": "5+ years",
+    "experienceYears": 5
+  },
+  {
+    "id": 22,
+    "name": "Deepak Singh -- 2",
+    "category": [
+      "Instrumentalist",
+      "Band"
+    ],
+    "priceRange": "₹15,000 - ₹30,000",
+    "minPrice": 15000,
+    "maxPrice": 30000,
+    "location": "Lucknow, Uttar Pradesh",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "bio": "Versatile saxophonist performing jazz, Bollywood, and classical tunes.",
+    "image": "/placeholder.svg",
+    "rating": 4.6,
+    "experience": "7+ years",
+    "experienceYears": 7
   }
 ]

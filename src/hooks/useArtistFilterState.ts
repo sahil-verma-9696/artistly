@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { MAX_PRICE, MIN_PRICE } from "@/config/filterConfig";
 
-export function useArtistFilters() {
+export function useArtistFilterState() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -9,7 +10,7 @@ export function useArtistFilters() {
   const [selectedLocation, setSelectedLocation] = useState<string>("all");
   const [selectedPriceRange, setSelectedPriceRange] = useState<
     [number, number]
-  >([7000, 80000]);
+  >([MIN_PRICE, MAX_PRICE]);
 
   // Extract params from URL on mount
   useEffect(() => {
@@ -36,7 +37,7 @@ export function useArtistFilters() {
 
     if (categories.length > 0) params.set("category", categories.join(","));
     if (location !== "all") params.set("location", location);
-    if (!(min === 7000 && max === 80000)) {
+    if (!(min === MIN_PRICE && max === MAX_PRICE)) {
       params.set("minPrice", String(min));
       params.set("maxPrice", String(max));
     }

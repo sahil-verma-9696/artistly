@@ -19,7 +19,7 @@ export type Artist = {
   experience: string;
 };
 
-export function useFilteredArtists() {
+export function useFilteredArtistList() {
   const searchParams = useSearchParams();
   const [artists] = useState<Artist[]>(artistsData);
 

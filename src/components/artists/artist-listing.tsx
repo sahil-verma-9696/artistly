@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Grid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArtistCard } from "./artist-card";
-import { useFilteredArtists } from "@/hooks/useFilteredArtists";
+import { useFilteredArtistList } from "@/hooks/useFilteredArtistList";
 
 export function ArtistListing() {
-  const { filteredArtists } = useFilteredArtists();
+  const { filteredArtists } = useFilteredArtistList();
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (

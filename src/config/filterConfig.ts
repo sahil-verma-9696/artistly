@@ -1,22 +1,23 @@
 import artistsData from "@/data/artists.json";
 
-export const categories = Array.from(
+export const CATEGORIES = Array.from(
   artistsData.reduce((set: Set<string>, artist) => {
     artist.category.forEach((cat: string) => set.add(cat));
     return set;
   }, new Set<string>())
 ).sort();
 
-export const locations = Array.from(
+export const LOCATIONS = Array.from(
   artistsData.reduce((set: Set<string>, artist) => {
     set.add(artist.location);
     return set;
   }, new Set<string>())
 ).sort();
 
-export const priceRanges = [
-  "₹10,000 - ₹25,000",
-  "₹25,000 - ₹50,000",
-  "₹50,000 - ₹100,000",
-  "₹100,000+",
-];
+export const MIN_PRICE = artistsData.reduce((min, artist) => {
+  return artist.minPrice < min ? artist.minPrice : min;
+}, Infinity);
+
+export const MAX_PRICE = artistsData.reduce((max, artist) => {
+  return artist.maxPrice > max ? artist.maxPrice : max;
+}, -Infinity);

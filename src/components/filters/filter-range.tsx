@@ -25,7 +25,7 @@ export function RangeFilter({
 
   useEffect(() => {
     onChange(range);
-  }, [range]);
+  }, [range,onChange]);
 
   return (
     <RangeSlider

@@ -4,9 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import FilterSection from "../filters/filter-section";
 import FilterSelect from "../filters/filter-select";
-import { useArtistFilters } from "@/hooks/useArtistFilters";
-import { categories, locations, priceRanges } from "@/config/filterConfig";
 import { RangeFilter } from "../filters/filter-range";
+import {
+  CATEGORIES,
+  LOCATIONS,
+  MAX_PRICE,
+  MIN_PRICE,
+} from "@/config/filterConfig";
+import { useArtistFilterState } from "@/hooks/useArtistFilterState";
 
 export function ArtistFilters() {
   const {
@@ -17,7 +22,7 @@ export function ArtistFilters() {
     handleLocationChange,
     handlePriceRangeChange,
     clearFilters,
-  } = useArtistFilters();
+  } = useArtistFilterState();
 
   return (
     <div className="space-y-6">
@@ -30,7 +35,7 @@ export function ArtistFilters() {
           {/* Categories */}
           <FilterSection
             title="Category"
-            values={categories}
+            values={CATEGORIES}
             selectedValues={selectedCategories}
             onValueChange={handleCategoryChange}
             onClear={clearFilters}
@@ -40,7 +45,7 @@ export function ArtistFilters() {
           {/* Location */}
           <FilterSelect
             title="Location"
-            options={locations}
+            options={LOCATIONS}
             selectedValue={selectedLocation}
             onChange={handleLocationChange}
             placeholder="Select location"
@@ -51,8 +56,8 @@ export function ArtistFilters() {
           <RangeFilter
             label="Price Range"
             defaultValue={selectedPriceRange}
-            min={7000}
-            max={80000}
+            min={MIN_PRICE}
+            max={MAX_PRICE}
             step={1000}
             unit="₹"
             onChange={handlePriceRangeChange}
